@@ -4,9 +4,9 @@ pipeline {
     stages {
 	stage('\u27A1 Install ansible') {
             steps {
-                sh '''sudo apt-get -y update;
-                      sudo apt install -y software-properties-common;
-                      sudo apt-add-repository --yes --update ppa:ansible/ansible;
+                sh '''deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
+                      sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+                      sudo apt update
                       sudo apt install -y ansible'''
             }
         }
