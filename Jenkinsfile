@@ -12,10 +12,12 @@ pipeline {
         }
         stage('\u27A1 Build') {
             steps {
+                sh 'echo "Hello World"'
             }
         }
         stage('\u27A1 Run') {
             steps {
+                sh 'echo "Goodbye World"'
             }
         }
         
