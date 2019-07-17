@@ -1,0 +1,11 @@
+{
+  "vcenter_server":"YOUR_VCENTER_INSTANCE",
+  "username":"administrator@vsphere.local",
+  "password":"YOUR_STRONG_PASSWORD",
+  "datastore":"YOUR_DATASTORE_NAME",
+  "cluster": "YOUR_CLUSTER_NAME",
+  "vm_name": "YOUR_TEMPORARY_VM_NAME",
+  "vm_template": "YOUR_TEMPLATE_NAME",
+  "ssh_username": "YOUR_TEMPLATE_SSH_USERNAME",
+  "ssh_password": "YOUR_TEMPLATE_SSH_PASSWORD"
+}

@@ -1,0 +1,44 @@
+{
+  "provisioners": [
+    {
+      "type": "ansible",
+      "user": "{{user `ssh_username`}}",
+      "playbook_file": "./debian10/playbook.yml",
+      "extra_arguments": [ "--extra-vars", "ansible_sudo_pass={{user `ssh_password`}}" ]
+    },
+    {
+      "type": "shell",
+      "scripts": ["./scripts/inspec_bootstrap.sh"]
+    },
+    {
+      "type": "shell",
+      "scripts": ["./scripts/inspec_sanity.sh"]
+    },
+    {
+      "type": "shell",
+      "scripts": ["./scripts/inspec_nginx.sh"]
+    },
+    {
+      "type": "shell",
+      "scripts": ["./scripts/inspec_cleanup.sh"]
+    }
+  ],
+  "builders": [
+    {
+      "type": "vsphere-clone",
+      "vcenter_server":      "{{user `vcenter_server`}}",
+      "username":            "{{user `username`}}",
+      "password":            "{{user `password`}}",
+      "insecure_connection": "true",
+
+      "template": "{{user `vm_template}}",
+      "vm_name":  "{{user `vm_name`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+
+      "cluster": "{{user `cluster`}}",
+      "datastore": "{{user `datastore`}}",
+      "communicator": "ssh"
+    }
+  ]
+}
