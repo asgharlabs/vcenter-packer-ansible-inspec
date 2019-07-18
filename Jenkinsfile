@@ -20,9 +20,9 @@ pipeline {
                    '''
             }
         }
-        stage('\u27A1 Run') {
+        stage('\u27A1 Inflate variables.json') {
             steps {
-                sh '$WORKSPACE/packer --version'
+                sh 'cp /home/admini/variables.json $WORKSPACE/debian10/variables.json'
             }
         }
         
