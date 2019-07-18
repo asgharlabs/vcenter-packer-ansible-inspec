@@ -3,7 +3,7 @@
 echo "#"
 echo "#"
 echo "#"
-echo "Now checking nginx settings!"
+echo "Now using InSpec to check our nginx settings!"
 echo "#"
 echo "#"
 echo "#"
