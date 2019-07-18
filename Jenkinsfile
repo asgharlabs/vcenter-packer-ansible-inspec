@@ -33,7 +33,7 @@ pipeline {
     }
     post {
         always {
-            sh '''rm -fr $WORKSPACE/*'''
+            sh '''echo "Hi"'''
         }
     }
 }
