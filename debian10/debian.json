@@ -31,7 +31,7 @@
       "password":            "{{user `password`}}",
       "insecure_connection": "true",
 
-      "template": "{{user `vm_template}}",
+      "template": "{{user `vm_template`}}",
       "vm_name":  "{{user `vm_name`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "ssh_password": "{{user `ssh_password`}}",
