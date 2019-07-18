@@ -31,8 +31,8 @@ pipeline {
         }
         stage('\u27A1 Change VM to gold template and archive old template') {
             steps {
-                sh '''docker exec vmware/powerclicore $WORKSPACE/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1;
-                docker exec vmware/powerclicore $WORKSPACE/.cscripts/Delete-Temp-Success-Image.ps1'''
+                sh '''docker run --rm -it -v ${PATH}:/mnt vmware/powerclicore /mnt/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1;
+                docker run --rm -it -v ${PATH}:/mnt vmware/powerclicore /mnt/.ciscripts/Delete-Temp-Success-Image.ps1'''
             }
         }
 
