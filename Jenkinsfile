@@ -1,12 +1,12 @@
 pipeline {
     agent any
-   
+
     stages {
 	stage('\u27A1 Install ansible') {
             steps {
                 sh '''sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-                      sudo apt update
-                      sudo apt install -y ansible'''
+                      sudo apt-get update
+                      sudo apt-get install -y ansible'''
             }
         }
         stage('\u27A1 Install Packer') {
@@ -29,12 +29,17 @@ pipeline {
                 sh '$WORKSPACE/packer build -var-file=$WORKSPACE/debian10/variables.json $WORKSPACE/debian10/debian.json'
             }
         }
-        
+        stage('\u27A1 Change VM to gold template and archive old template') {
+            steps {
+                sh 'docker exec vmware/powercli $WORKSPACE/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1'
+            }
+        }
+
     }
     post {
         always {
-            sh '''rm -fr $WORKSPACE/*'''
+            sh '''rm -fr $WORKSPACE/*;
+                  sudo apt-get remove --purge ansible -y'''
         }
     }
 }
-
