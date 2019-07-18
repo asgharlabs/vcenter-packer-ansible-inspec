@@ -9,14 +9,16 @@ pipeline {
                       sudo apt install -y ansible'''
             }
         }
-        stage('\u27A1 Build') {
+        stage('\u27A1 Install Packer') {
             steps {
-                sh 'echo "Hello World"'
+                sh '''wget https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip;
+                      unzip packer_1.4.2_linux_amd64.zip;
+                   '''
             }
         }
         stage('\u27A1 Run') {
             steps {
-                sh 'echo "Goodbye World"'
+                sh '$WORKSPACE/packer --version'
             }
         }
         
