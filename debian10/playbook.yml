@@ -18,6 +18,15 @@
   # I'm a bad actor!
   #
   tasks:
+    - name: stop nginx
+      become: yes
+      service:
+          name: nginx
+          state: stopped
+    - name: remove nginx
+      apt:
+        become: yes
+        pkg: nginx
     - name: ensure apache2 is at the latest version
       become: yes
       apt:
