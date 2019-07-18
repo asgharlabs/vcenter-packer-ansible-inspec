@@ -26,7 +26,7 @@ pipeline {
         }
         stage('\u27A1 Build image with packer') {
             steps {
-                sh '$WORKSPACE/packer build $WORKSPACE/debian10/debian.json'
+                sh '$WORKSPACE/packer build -var-file=$WORKSPACE/debian10/variables.json $WORKSPACE/debian10/debian.json'
             }
         }
         
