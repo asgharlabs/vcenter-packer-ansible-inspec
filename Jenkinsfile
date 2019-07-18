@@ -31,15 +31,15 @@ pipeline {
         }
         stage('\u27A1 Change VM to gold template and archive old template') {
             steps {
-                sh 'docker run -it vmware/powerclicore $WORKSPACE/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1'
+                sh 'docker run -it vmware/powerclicore $WORKSPACE/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1;
+                docker run -it  vmware/powerclicore $WORKSPACE/.cscripts/Delete-Temp-Success-Image.ps1'
             }
         }
 
     }
     post {
         always {
-            sh '''docker run -it  vmware/powerclicore $WORKSPACE/.cscripts/Delete-Temp-Success-Image.ps1;
-                  rm -fr $WORKSPACE/*;
+            sh '''rm -fr $WORKSPACE/*;
                   sudo apt-get remove --purge ansible -y'''
         }
     }
