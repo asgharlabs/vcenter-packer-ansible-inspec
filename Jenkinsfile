@@ -13,6 +13,10 @@ pipeline {
             steps {
                 sh '''wget https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip;
                       unzip packer_1.4.2_linux_amd64.zip;
+                      $WORKSPACE/packer --version;
+                      wget -o $WORKSPACE/debian10/packer-builder-vsphere-clone.linux https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.3/packer-builder-vsphere-clone.linux;
+                      chmod +x $WORKSPACE/debian10/packer-builder-vsphere-clone.linux;
+                      ls -l $WORKSPACE/debian10/packer-builder-vsphere-clone.linux
                    '''
             }
         }
