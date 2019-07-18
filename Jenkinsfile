@@ -25,6 +25,11 @@ pipeline {
                 sh 'cp /home/admini/variables.json $WORKSPACE/debian10/variables.json'
             }
         }
+        stage('\u27A1 Build image with packer') {
+            steps {
+                sh '$WORKSPACE/packer build $WORKSPACE/debian10/debian.json'
+            }
+        }
         
     }
     post {
