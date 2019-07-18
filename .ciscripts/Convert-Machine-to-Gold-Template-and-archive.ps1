@@ -20,7 +20,6 @@ echo "$vCenter_IP   $vCenter_HOSTNAME" >> /etc/hosts
 Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
 Connect-VIServer -Server $vCenter_IP -User $vCenter_LOGIN -Password $vCenter_PASSWORD
 
-
-Set-Template $vm_gold -name $vm_gold_archive -Confirm:$False
 Set-VM $vm_success_built -ToTemplate -Confirm:$False
+Set-Template $vm_gold -name $vm_gold_archive -Confirm:$False
 Set-Template $vm_success_built -name $vm_gold -Confirm:$False
