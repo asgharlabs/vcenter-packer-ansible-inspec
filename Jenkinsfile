@@ -34,13 +34,17 @@ pipeline {
                 sh 'docker run --rm --entrypoint="/usr/bin/pwsh" -v $WORKSPACE/:/mnt vmware/powerclicore /mnt/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1'
             }
         }
+        stage('\u27A1 Gotta clean up after ourselves') {
+            steps {
+                sh '''sudo apt-get remove --purge ansible -y;
+                  sudo apt-get autoremove -y'''
 
+            }
+        }
     }
     post {
         always {
-            sh '''rm -fr $WORKSPACE/*;
-                  sudo apt-get remove --purge ansible -y;
-                  sudo apt-get autoremove -y'''
+            sh 'rm -fr $WORKSPACE/*;'
         }
     }
 }
