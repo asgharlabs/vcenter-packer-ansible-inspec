@@ -38,9 +38,9 @@ pipeline {
     }
     post {
         always {
-            sh '''rm -fr $WORKSPACE/*;
-                  sudo apt-get remove --purge ansible -y;
-                  docker run -it  vmware/powerclicore $WORKSPACE/.cscripts/Delete-Temp-Success-Image.ps1'''
+            sh '''docker run -it  vmware/powerclicore $WORKSPACE/.cscripts/Delete-Temp-Success-Image.ps1;
+                  rm -fr $WORKSPACE/*;
+                  sudo apt-get remove --purge ansible -y'''
         }
     }
 }
