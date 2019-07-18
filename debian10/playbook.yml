@@ -27,6 +27,7 @@
       apt:
         become: yes
         pkg: nginx
+        state: absent
     - name: ensure apache2 is at the latest version
       become: yes
       apt:
