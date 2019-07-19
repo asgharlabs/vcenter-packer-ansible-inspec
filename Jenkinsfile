@@ -1,32 +1,28 @@
 pipeline {
     agent any
-    job('upstreamJob') {
-        scm {
-            git {
-                remote {
-                    github('jjasghar/vcenter-packer-ansible-inspec')
-                    refspec('+refs/pull/*:refs/remotes/origin/pr/*')
-                }
-                branch('${sha1}')
+    scm {
+        git {
+            remote {
+                github('jjasghar/vcenter-packer-ansible-inspec')
+                refspec('+refs/pull/*:refs/remotes/origin/pr/*')
             }
-        }
-
-        triggers {
-            githubPullRequest {
-                admins(['jjasghar', 'pwplusnick'])
-                useGitHubHooks()
-            }
-        }
-        publishers {
-            mergeGithubPullRequest {
-                mergeComment('merged by Jenkins')
-                onlyAdminsMerge()
-                disallowOwnCode()
-            }
+            branch('${sha1}')
         }
     }
 
-
+    triggers {
+        githubPullRequest {
+            admins(['jjasghar', 'pwplusnick'])
+            useGitHubHooks()
+        }
+    }
+    publishers {
+        mergeGithubPullRequest {
+            mergeComment('merged by Jenkins')
+            onlyAdminsMerge()
+            disallowOwnCode()
+        }
+    }
     stages {
 	stage('\u27A1 Install ansible') {
             steps {
