@@ -19,18 +19,33 @@ pipeline {
             }
         }
         stage('\u27A1 Inflate variables.json') {
+            when {
+                branch 'master'
+                steps {
+                    sh 'cp /home/admini/variables.json $WORKSPACE/debian10/variables.json'
+                }
+            }
             steps {
-                sh 'cp /home/admini/variables.json $WORKSPACE/debian10/variables.json'
+                sh 'cp /home/admini/notmaster-variables.json $WORKSPACE/debian10/variables.json'
             }
         }
         stage('\u27A1 Build image with packer') {
+            when {
+                branch 'master'
+                steps {
+                    sh '$WORKSPACE/packer build -var-file=$WORKSPACE/debian10/variables.json $WORKSPACE/debian10/debian.json'
+                }
+            }
             steps {
-                sh '$WORKSPACE/packer build -var-file=$WORKSPACE/debian10/variables.json $WORKSPACE/debian10/debian.json'
+                sh '$WORKSPACE/packer build -var-file=$WORKSPACE/debian10/notmaster-variables.json $WORKSPACE/debian10/debian.json'
             }
         }
         stage('\u27A1 Change VM to gold template and archive old template') {
-            steps {
-                sh 'docker run --rm --entrypoint="/usr/bin/pwsh" -v $WORKSPACE/:/mnt vmware/powerclicore /mnt/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1'
+            when {
+                branch 'master'
+                steps {
+                    sh 'docker run --rm --entrypoint="/usr/bin/pwsh" -v $WORKSPACE/:/mnt vmware/powerclicore /mnt/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1'
+                }
             }
         }
         stage('\u27A1 Gotta clean up after ourselves') {
