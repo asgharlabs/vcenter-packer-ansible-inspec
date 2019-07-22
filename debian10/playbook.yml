@@ -15,7 +15,7 @@
           state: started
 
   #
-  # I'm a bad actor...
+  # I'm a bad actor
   #
   # tasks:
   #   - name: stop nginx
