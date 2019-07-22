@@ -21,7 +21,9 @@ pipeline {
         }
         stage('\u27A1 Master-Inflate variables.json') {
             when {
-                branch 'master'
+                expression {
+                    return env.GIT_BRANCH == "origin/master"
+                }
             }
             steps {
                 sh 'cp /home/admini/variables.json $WORKSPACE/debian10/variables.json'
@@ -34,7 +36,9 @@ pipeline {
         }
         stage('\u27A1 Master-Build image with packer') {
             when {
-                branch 'master'
+                expression {
+                    return env.GIT_BRANCH == "origin/master"
+                }
             }
             steps {
                 sh '$WORKSPACE/packer build -var-file=$WORKSPACE/debian10/variables.json $WORKSPACE/debian10/debian.json'
@@ -47,7 +51,9 @@ pipeline {
         }
         stage('\u27A1 Master-Change VM to gold template and archive old template') {
             when {
-                branch 'master'
+                expression {
+                    return env.GIT_BRANCH == "origin/master"
+                }
             }
             steps {
                 sh 'docker run --rm --entrypoint="/usr/bin/pwsh" -v $WORKSPACE/:/mnt vmware/powerclicore /mnt/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1'
