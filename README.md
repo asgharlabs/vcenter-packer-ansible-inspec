@@ -9,6 +9,8 @@ This repo is the core example pipeline bringing vCenter, `packer`,
 
 TODO: Fill this out
 
+## Diagram
+
 TODO: Add diagram of the pipeline
 
 ## Usage
