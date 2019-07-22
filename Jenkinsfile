@@ -2,13 +2,33 @@ pipeline {
     agent any
     stages {
 	stage('\u27A1 Install ansible') {
+            when {
+                branch 'master'
+                steps {
+                    sh '''sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+                      sudo apt-get update
+                      sudo apt-get install -y ansible'''
+                }
+            }
             steps {
                 sh '''sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
                       sudo apt-get update
                       sudo apt-get install -y ansible'''
             }
+
         }
         stage('\u27A1 Install Packer') {
+            when {
+                branch 'master'
+                steps {
+                    sh '''wget https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip;
+                      unzip packer_1.4.2_linux_amd64.zip;
+                      $WORKSPACE/packer --version;
+                      wget -O $WORKSPACE/packer-builder-vsphere-clone.linux https://github.com/jetbrains-infra/packer-builder-vsphere/releases/download/v2.3/packer-builder-vsphere-clone.linux;
+                      chmod +x $WORKSPACE/packer-builder-vsphere-clone.linux;
+                   '''
+                }
+            }
             steps {
                 sh '''wget https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip;
                       unzip packer_1.4.2_linux_amd64.zip;
@@ -49,12 +69,22 @@ pipeline {
             }
         }
         stage('\u27A1 Gotta clean up after ourselves') {
+            when {
+                branch 'master'
+                steps {
+                    sh '''sudo apt-get remove --purge ansible -y;
+                  sudo apt-get autoremove -y'''
+
+                }
+            }
             steps {
                 sh '''sudo apt-get remove --purge ansible -y;
                   sudo apt-get autoremove -y'''
 
-            }
+                }
+
         }
+
     }
     post {
         always {
