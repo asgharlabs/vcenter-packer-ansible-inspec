@@ -76,7 +76,7 @@ pipeline {
                 sh 'docker run --rm --entrypoint="/usr/bin/pwsh" -v $WORKSPACE/:/mnt vmware/powerclicore /mnt/.ciscripts/Convert-Machine-to-Gold-Template-and-archive.ps1'
             }
         }
-        stage('\u27A1 Gotta clean up after ourselves') {
+        stage('\u27A1 Master-Gotta clean up after ourselves') {
             when {
                 branch 'master'
             }
