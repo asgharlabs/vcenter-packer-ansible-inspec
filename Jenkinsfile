@@ -30,6 +30,13 @@ pipeline {
             }
         }
         stage('\u27A1 Inflate variables.json') {
+            when {
+                not {
+                    expression {
+                        return env.GIT_BRANCH == "origin/master"
+                    }
+                }
+            }
             steps {
                 sh 'cp /home/admini/notmaster-variables.json $WORKSPACE/debian10/notmaster-variables.json'
             }
@@ -45,6 +52,14 @@ pipeline {
             }
         }
         stage('\u27A1 Build image with packer') {
+            when {
+                not {
+                    expression {
+                        return env.GIT_BRANCH == "origin/master"
+                    }
+                }
+            }
+
             steps {
                 sh '$WORKSPACE/packer build -var-file=$WORKSPACE/debian10/notmaster-variables.json $WORKSPACE/debian10/debian.json'
             }
