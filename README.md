@@ -5,7 +5,9 @@
 This repo is the core example pipeline bringing vCenter, `packer`,
 `ansible` and `inspec` together.
 
-TODO: Add paragraph of process
+## Process
+
+TODO: Fill this out
 
 TODO: Add diagram of the pipeline
 
