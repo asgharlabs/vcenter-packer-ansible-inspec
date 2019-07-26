@@ -1,41 +1,41 @@
 ---
 - hosts: all
 
-  tasks:
-    - name: ensure nginx is at the latest version
-      become: yes
-      apt:
-        name: nginx
-        state: latest
-        update_cache: yes
-    - name: start nginx
-      become: yes
-      service:
-          name: nginx
-          state: started
+  # tasks:
+  #   - name: ensure nginx is at the latest version
+  #     become: yes
+  #     apt:
+  #       name: nginx
+  #       state: latest
+  #       update_cache: yes
+  #   - name: start nginx
+  #     become: yes
+  #     service:
+  #         name: nginx
+  #         state: started
 
   #
   # I'm a bad actor
   #
-  # tasks:
-  #   - name: stop nginx
-  #     become: yes
-  #     service:
-  #         name: nginx
-  #         state: stopped
-  #   - name: remove nginx
-  #     become: yes
-  #     apt:
-  #       pkg: nginx
-  #       state: absent
-  #   - name: ensure apache2 is at the latest version
-  #     become: yes
-  #     apt:
-  #       name: apache2
-  #       state: latest
-  #       update_cache: yes
-  #   - name: start apache2
-  #     become: yes
-  #     service:
-  #         name: apache2
-  #         state: started
+  tasks:
+    - name: stop nginx
+      become: yes
+      service:
+          name: nginx
+          state: stopped
+    - name: remove nginx
+      become: yes
+      apt:
+        pkg: nginx
+        state: absent
+    - name: ensure apache2 is at the latest version
+      become: yes
+      apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+    - name: start apache2
+      become: yes
+      service:
+          name: apache2
+          state: started
