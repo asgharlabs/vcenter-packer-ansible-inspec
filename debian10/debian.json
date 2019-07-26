@@ -4,7 +4,7 @@
       "type": "ansible",
       "user": "{{user `ssh_username`}}",
       "playbook_file": "./debian10/playbook.yml",
-      "extra_arguments": [ "--extra-vars", "ansible_sudo_pass={{user `ssh_password`}}" ]
+      "extra_arguments": [ "--extra-vars", "ansible_sudo_pass={{user `ssh_password`}}", "--become" ]
     },
     {
       "type": "shell",
