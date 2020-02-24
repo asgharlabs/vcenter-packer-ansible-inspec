@@ -4,7 +4,7 @@ pipeline {
         stage('\u27A1 Install ansible and dependanices') {
             steps {
                 sh '''sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-                      sudo dnf install -y ansible wget'''
+                      sudo dnf install -y ansible wget unzip'''
             }
 
         }
