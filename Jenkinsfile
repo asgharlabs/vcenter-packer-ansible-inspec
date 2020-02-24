@@ -25,7 +25,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cp /home/admini/variables.json $WORKSPACE/debian10/variables.json'
+                sh 'cp /var/lib/jenkins/variables.json $WORKSPACE/debian10/variables.json'
             }
         }
         stage('\u27A1 Inflate variables.json') {
@@ -37,7 +37,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cp /home/admini/notmaster-variables.json $WORKSPACE/debian10/notmaster-variables.json'
+                sh 'cp /var/lib/jenkinks/notmaster-variables.json $WORKSPACE/debian10/notmaster-variables.json'
             }
         }
         stage('\u27A1 Master-Build image with packer') {
