@@ -16,7 +16,7 @@ $vm_success_built = 'debian-success'
 
 ################################################
 
-echo "$vCenter_IP   $vCenter_HOSTNAME" >> /etc/hosts
+#echo "$vCenter_IP   $vCenter_HOSTNAME" >> /etc/hosts
 Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
 Connect-VIServer -Server $vCenter_IP -User $vCenter_LOGIN -Password $vCenter_PASSWORD
 
