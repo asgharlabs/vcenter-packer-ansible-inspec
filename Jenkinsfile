@@ -1,11 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('\u27A1 Install ansible') {
+        stage('\u27A1 Install ansible and dependanices') {
             steps {
-                sh '''sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-                      sudo apt-get update
-                      sudo apt-get install -y ansible'''
+                sh '''sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+                      sudo dnf install -y ansible wget'''
             }
 
         }
