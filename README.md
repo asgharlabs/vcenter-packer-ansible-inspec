@@ -7,7 +7,7 @@ This repo is the core example pipeline bringing vCenter, `packer`,
 
 ## Process
 
-1) Prepare your Jenkins instance. You'll need `docker`, `git`, and `sudo` access for at least the `jenkins` user.
+1) Prepare your Jenkins instance. You'll need `docker`, `git`, `sudo` access for at least the `jenkins` user.
 2) Make sure your `variables.json` has at least `master` set up correctly. Run through the pipeline at least once, with `nginx` only commented in the `playbook.yml`
 3) Have your `debian10-template` or the like set up with `sudo` for your login, and `open-vm-tools` already installed on the template.
 

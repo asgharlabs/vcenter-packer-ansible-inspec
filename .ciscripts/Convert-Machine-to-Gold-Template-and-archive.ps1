@@ -1,10 +1,10 @@
 ######## Variables you need to fill out ########
 
-$vCenter_IP = '172.16.0.114'
-$vCenter_HOSTNAME = 'vcenter-asghar-vmw.asghar-vmw.asgharlabs.io'
+$vCenter_IP = '172.16.10.217'
+$vCenter_HOSTNAME = 'asgharlabs-vc.asgharlabs.io'
 $vCenter_LOGIN = 'administrator@vsphere.local'
-$vCenter_PASSWORD = 'MXORSj^0Z$lBT0t'
-$vCenter_CLUSTER = 'cluster1'
+$vCenter_PASSWORD = '6OzDKO!LSrR$j0u'
+$vCenter_CLUSTER = 'asghar'
 $vCenter_DATASTORE = 'vsanDatastore'
 
 $vm_gold = 'debian-gold'

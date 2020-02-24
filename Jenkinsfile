@@ -75,8 +75,8 @@ pipeline {
         }
         stage('\u27A1 Gotta clean up after ourselves') {
             steps {
-                sh '''sudo apt-get remove --purge ansible -y;
-                  sudo apt-get autoremove -y'''
+                sh '''sudo dnf -y remove ansible;
+                  sudo dnf -y autoremove'''
             }
 
         }
