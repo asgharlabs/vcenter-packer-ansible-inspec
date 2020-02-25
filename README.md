@@ -17,11 +17,6 @@ This repo is the core example pipeline bringing vCenter, `packer`,
 
 ## Usage
 
-### Pre-Reqs
-
-1) `ansible` installed
-2) `packer` installed
-3) `packer-builder-vphere` installed from [here][builder_vsphere]
 
 ### Running the pipeline
 
