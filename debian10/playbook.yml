@@ -18,20 +18,20 @@
   #
   # A successful PR!
   #
-  # tasks:
-    # - name: install an ops user
-    #   user:
-    #     name: ops
-    #     shell: /bin/bash
-    #     comment: Ops Shared account
-    #     groups: root,sudo
-    #     append: true
+  tasks:
+    - name: install an ops user
+      user:
+        name: ops
+        shell: /bin/bash
+        comment: Ops Shared account
+        groups: root,sudo
+        append: true
 
-    # - name: Set authorized key for Ops
-    #   authorized_key:
-    #     user: ops
-    #     state: present
-    #     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxAVkrfknXoHFQtyXtYZ6vONLHn7HTKQq4mkwvCOPMKb3gr6gsLQkCdzmO3CQwOcFl7uDWGdfjH/ocuSUSn6xMvfCdsdGzDiLQXcDJ4jGOuuyOioniN1N00IhAD7Tqsf4AvbQJ7gDqfPKDCw6LdlZ0d0d9pWlJf7eKf/Hq3x8RCqWek/+UCoU4l4T1eAM0N/bA5tj3EfvRuDniO8U5ClsuUbtJ1uxJmrWMhFox3jFp6oNrleHWFTiRsNKfbtfTrTJRYlqcOG2jGAb49JY+p6Ykku4vq0ezYZFYXGJki6a0yLu1kMg5aHJo9UX0d9JW6y11KfXbGKN4okeRcH/tSNov jasghar@remasghar01.local"
+    - name: Set authorized key for Ops
+      authorized_key:
+        user: ops
+        state: present
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxAVkrfknXoHFQtyXtYZ6vONLHn7HTKQq4mkwvCOPMKb3gr6gsLQkCdzmO3CQwOcFl7uDWGdfjH/ocuSUSn6xMvfCdsdGzDiLQXcDJ4jGOuuyOioniN1N00IhAD7Tqsf4AvbQJ7gDqfPKDCw6LdlZ0d0d9pWlJf7eKf/Hq3x8RCqWek/+UCoU4l4T1eAM0N/bA5tj3EfvRuDniO8U5ClsuUbtJ1uxJmrWMhFox3jFp6oNrleHWFTiRsNKfbtfTrTJRYlqcOG2jGAb49JY+p6Ykku4vq0ezYZFYXGJki6a0yLu1kMg5aHJo9UX0d9JW6y11KfXbGKN4okeRcH/tSNov jasghar@remasghar01.local"
 
   #
   # I'm a bad actor
