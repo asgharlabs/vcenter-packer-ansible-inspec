@@ -11,7 +11,7 @@ $vm_gold = 'debian-gold'
 $epoch = (New-TimeSpan -Start (Get-Date "01/01/1970") -End (Get-Date)).TotalSeconds
 $archive_tag = Get-Date -Format "yyyy-MM-dd-$epoch"
 $vm_gold_archive = $("debian-gold-" + $archive_tag)
-$vm_success_built = 'debian-success'
+$vm_success_built = 'debian-working'
 
 
 ################################################
