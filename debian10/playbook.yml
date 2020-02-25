@@ -1,6 +1,5 @@
 ---
 - hosts: all
-
   tasks:
     - name: ensure nginx is at the latest version
       become: yes
@@ -18,7 +17,6 @@
   #
   # A successful PR!
   #
-  tasks:
     - name: install an ops user
       user:
         name: ops
@@ -36,7 +34,6 @@
   #
   # I'm a bad actor
   #
-  # tasks:
     # - name: stop nginx
     #   become: yes
     #   service:
