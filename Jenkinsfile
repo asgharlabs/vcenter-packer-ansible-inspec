@@ -37,7 +37,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cp /var/lib/jenkinks/notmaster-variables.json $WORKSPACE/debian10/notmaster-variables.json'
+                sh 'cp /var/lib/jenkins/notmaster-variables.json $WORKSPACE/debian10/notmaster-variables.json'
             }
         }
         stage('\u27A1 Master-Build image with packer') {
