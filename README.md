@@ -17,7 +17,6 @@ This repo is the core example pipeline bringing vCenter, `packer`,
 
 ## Usage
 
-
 ### Running the pipeline
 
 1) Clone this repository and make any changes to the [Jenkinsfile](./Jenkinsfile)
