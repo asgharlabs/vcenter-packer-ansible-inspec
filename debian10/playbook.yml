@@ -33,7 +33,7 @@
 
   #
   # I'm a bad actor
-  #
+  ##
     - name: stop nginx
       become: yes
       service:
