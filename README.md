@@ -21,9 +21,9 @@ This repo is the core example pipeline bringing vCenter, `packer`,
 
 ### Running the pipeline
 
-1) Clone this repository and make any changes to the [Jenkinsfile](./Jenkinsfile)
+1) Clone this repository and make any changes to the [Jenkinsfile](https://github.com/asgharlabs/vcenter-packer-ansible-inspec/blob/master/Jenkinsfile)
 2) Take the Jenkinsfile import it into your jenkins instance.
-3) Edit the following from the [variables.json](./debian10/variables.json) example
+3) Edit the following from the [variables.json](https://github.com/asgharlabs/vcenter-packer-ansible-inspec/blob/master/debian10/variables.json) example
 4) Run the pipeline with changes you may want.
 
 ### Presentation/Script
@@ -32,13 +32,13 @@ This repo is the core example pipeline bringing vCenter, `packer`,
 2) Run the pipeline with master first. `origin/master` as a parameter.
 3) You should show off you having the 2 templates now, `debian-working` and `debian-gold-$DATE`
 4) Rename `debian-gold-$DATE` to `debian-gold`, and delete `debian-working`.
-5) Create a PR with with the first part of the [playbook.yml](debian10/playbook.yml) uncommented.
+5) Create a PR with with the first part of the [playbook.yml](https://github.com/asgharlabs/vcenter-packer-ansible-inspec/blob/master/debian10/playbook.yml) uncommented.
 6) Update with the second part of the playbook, the `ssh-key`.
 7) Update with the third part of the playbook for the `bad-actor`, show off the InSpec failure.
 
 ## License & Authors
 
-If you would like to see the detailed LICENCE click [here](./LICENCE).
+If you would like to see the detailed LICENCE click [here](https://github.com/asgharlabs/vcenter-packer-ansible-inspec/blob/master/LICENCE).
 
 - Author: JJ Asghar 
 - Author: Will Plusnick
