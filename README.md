@@ -40,8 +40,8 @@ This repo is the core example pipeline bringing vCenter, `packer`,
 
 If you would like to see the detailed LICENCE click [here](./LICENCE).
 
-- Author: JJ Asghar <awesome@ibm.com>
-- Author: Will Plusnick <pwplusni@us.ibm.com>
+- Author: JJ Asghar 
+- Author: Will Plusnick
 
 ```text
 Copyright:: 2019- IBM, Inc
